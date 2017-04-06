@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Meteorology Lesson 1</title><hr>
+</head>
+
+<body>
+<img src="Slide1.GIF" id="mainImage" name="mainImage" width="100%" height="100%" alt="">
+
+<a href="#" onclick="swapImage(0);"><img src="/images/first.png" border=0 alt="First"></a>
+<a href="#" onclick="swapImage(currentIndex-1);"><img src="/images/left.png" border=0 alt="Back"></a>
+<a href="#" onclick="swapImage(currentIndex+1);"><img src="/images/right.png" border=0 alt="Next"></a>
+<a href="#" onclick="swapImage(maxIndex);"><img src="/images/last.png" border=0 alt="Last"></a>
+
+
+<script type="text/javascript">
+    //Initilize start value to 1 'For Slide1.GIF'
+    var currentIndex = 1;
+
+    //NOTE: Set this value to the number of slides you have in the presentation.
+    var maxIndex=12;
+
+    function swapImage(imageIndex){
+        //Check if we are at the last image already, return if we are.
+        if(imageIndex>maxIndex){
+            currentIndex=maxIndex;
+            return;
+        }
+
+        //Check if we are at the first image already, return if we are.
+        if(imageIndex<1){
+            currentIndex=1;
+            return;
+        }
+
+        currentIndex=imageIndex;
+        //Otherwise update mainImage
+        document.getElementById("mainImage").src='Slide' +  currentIndex  + '.GIF';
+        return;
+    }
+</script>
+
+</body>
+</html>
